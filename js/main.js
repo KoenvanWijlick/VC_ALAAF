@@ -31,22 +31,22 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch((error) => console.error("Error loading sponsor images:", error));
 
-    /* -------------------------------------------
+  /* -------------------------------------------
      2. Wagen Items Slide-in on Scroll
      ------------------------------------------- */
-  const wagenItems = document.querySelectorAll(".wagen-item");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  wagenItems.forEach((item) => {
-    observer.observe(item);
-  });
+    const wagenItems = document.querySelectorAll(".wagen-item");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+  
+    wagenItems.forEach((item) => {
+      observer.observe(item);
+    });
 });
