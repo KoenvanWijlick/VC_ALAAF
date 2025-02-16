@@ -1,0 +1,202 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #f4f4f4;
+    color: #333;
+  }
+  
+  /* Top Navigation Bar */
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #222;
+    padding: 10px 20px;
+  }
+  .topbar .logo img {
+    height: 40px;
+  }
+  .topbar .menu {
+    list-style: none;
+    display: flex;
+  }
+  .topbar .menu li {
+    margin-left: 20px;
+  }
+  .topbar .menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  .topbar .menu li a:hover {
+    color: #f39c12;
+  }
+  
+  /* Section Headings */
+  .gallery h2 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 28px;
+    color: #222;
+  }
+  .sponsor-section h2,
+  .sponsor-input h2 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 28px;
+    color: #fff;
+  }
+  
+  /* Carnavals Wagens Gallery */
+  .gallery {
+    padding: 20px;
+  }
+  .wagen-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .wagen-item {
+    width: 50%;            /* Each image fills 50% of the container */
+    padding: 10px;
+    opacity: 0;            /* Start hidden */
+    transform: translateX(-100px);  /* Slide in from the left */
+    transition: all 0.5s ease-in-out;
+  }
+  .wagen-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .wagen-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Sponsors Section */
+  .sponsor-section {
+    background: #333;  /* Dark background for white title */
+    padding: 20px;
+  }
+  .sponsor-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+  }
+  .sponsor-item {
+    opacity: 0;
+    /* Start offset to the right */
+    transform: translateX(50px);
+    /* Two animations: one for fadeIn & slide, one for a subtle float */
+    animation: fadeInRight 1s forwards, float 5s ease-in-out infinite;
+    /* Use custom property for staggered delays:
+       - The fadeInRight animation uses --fadeDelay,
+       - The float animation starts after fadeInRight finishes (1s later) */
+    animation-delay: var(--fadeDelay), calc(var(--fadeDelay) + 1s);
+  }
+  .sponsor-item img {
+    max-height: 60px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0.8);
+    transition: filter 0.3s;
+  }
+  .sponsor-item img:hover {
+    filter: brightness(1);
+  }
+  
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+/* Become a Sponsor Section */
+.sponsor-input {
+    background: #333;  /* Dark background for white title */
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+    color: #fff;  /* Ensures default text in this section is white */
+  }
+  .sponsor-input p {
+    color: #fff; /* Explicitly set paragraph text to white */
+  }
+  .sponsor-input form {
+    display: inline-block;
+    margin-top: 10px;
+    text-align: left;
+  }
+  .sponsor-input label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #fff;
+  }
+  .sponsor-input input[type="text"],
+  .sponsor-input input[type="email"],
+  .sponsor-input input[type="tel"],
+  .sponsor-input textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .sponsor-input button {
+    background: #f39c12;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .sponsor-input button:hover {
+    background: #d35400;
+  }
+  
+  /* Form response message */
+  .form-response p {
+    color: #fff; /* Make sure the thank-you text is white */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .topbar {
+      flex-direction: column;
+    }
+    .topbar .menu {
+      flex-direction: column;
+      align-items: center;
+    }
+    .topbar .menu li {
+      margin: 10px 0;
+    }
+  }
+  

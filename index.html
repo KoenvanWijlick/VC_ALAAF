@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carnavals Wagens</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <header>
+    <nav class="topbar">
+      <div class="logo">
+        <img src="assets/images/Logo.png" alt="Club van 33 Logo" />
+      </div>
+      <ul class="menu">
+        <li><a href="#wagens">Wagens</a></li>
+        <li><a href="#sponsors">Sponsors</a></li>
+        <li><a href="#become-sponsor">Become a Sponsor</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Carnavals Wagens Gallery Section -->
+  <section id="wagens" class="gallery">
+    <h2>Carnavals Wagens</h2>
+    <div class="wagen-gallery">
+      <div class="wagen-item">
+        <img src="assets/images/wagen_2025_1.png" alt="Wagen 1" />
+      </div>
+      <div class="wagen-item">
+        <img src="assets/images/wagen_2025_2.png" alt="Wagen 2" />
+      </div>
+      <div class="wagen-item">
+        <img src="assets/images/wagen_2025_3.png" alt="Wagen 3" />
+      </div>
+      <div class="wagen-item">
+        <img src="assets/images/wagen_2025_4.png" alt="Wagen 4" />
+      </div>
+      <!-- Add more wagen items as needed -->
+    </div>
+  </section>
+
+  <!-- Sponsors Section -->
+  <section id="sponsors" class="sponsor-section">
+    <h2>Our Sponsors</h2>
+    <div class="sponsor-list">
+      <!-- Sponsor items will be populated dynamically via JS -->
+    </div>
+  </section>
+
+  <!-- Become a Sponsor Section -->
+  <section id="become-sponsor" class="sponsor-input">
+    <h2>Become a Sponsor</h2>
+    <p>
+      Interested in sponsoring? Fill out the form below or call us directly at 
+      <a href="tel:+31612345678" class="contact-number">+31 6 12345678</a>.
+    </p>
+    <form id="sponsorForm">
+      <label for="sponsor-name">Name:</label>
+      <input type="text" id="sponsor-name" name="sponsor-name" placeholder="Your Name" required />
+
+      <label for="sponsor-email">Email:</label>
+      <input type="email" id="sponsor-email" name="sponsor-email" placeholder="you@example.com" required />
+
+      <label for="sponsor-phone">Phone Number:</label>
+      <input type="tel" id="sponsor-phone" name="sponsor-phone" placeholder="+31 ..." required />
+
+      <label for="sponsor-message">Message:</label>
+      <textarea id="sponsor-message" name="sponsor-message" rows="4" placeholder="Tell us about your sponsorship ideas" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+    <div id="formResponse" class="form-response" style="display: none;">
+      <p>Thank you for reaching out! Our sponsorship coordinator will contact you soon.</p>
+    </div>
+    <script>
+      // Reactive form handling: show a thank-you message on submit.
+      document.getElementById('sponsorForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Optionally, add AJAX submission here.
+        this.style.display = 'none';
+        document.getElementById('formResponse').style.display = 'block';
+      });
+    </script>
+  </section>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
