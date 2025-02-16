@@ -1,46 +1,52 @@
-document.addEventListener("DOMContentLoaded", function() {
-    /* -------------------------------------------
-       1. Dynamically Load Sponsor Images
-       ------------------------------------------- */
-    fetch('assets/sponsors.json')
-      .then(response => response.json())
-      .then(data => {
-        // data is an array of sponsor image filenames
-        const sponsorList = document.querySelector('.sponsor-list');
-        if (sponsorList) {
-          sponsorList.innerHTML = ''; // Clear any existing content
-  
-          data.forEach((fileName, index) => {
-            const sponsorItem = document.createElement('div');
-            sponsorItem.classList.add('sponsor-item');
-            // Set a custom property for staggered delay
-            sponsorItem.style.setProperty('--fadeDelay', `${index * 0.2}s`);
-  
-            const img = document.createElement('img');
+document.addEventListener("DOMContentLoaded", function () {
+  /* -------------------------------------------
+     1. Dynamically Load Sponsor Images
+     ------------------------------------------- */
+  fetch("assets/sponsors.json")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Loaded Sponsor Images:", data); // Print the JSON list to the console
+
+      const sponsorTrack = document.querySelector(".sponsor-track");
+      if (sponsorTrack) {
+        sponsorTrack.innerHTML = ""; // Clear any existing content
+
+        // Append images twice to create a seamless infinite loop
+        for (let i = 0; i < 2; i++) { // Duplicate sponsors
+          data.forEach((fileName) => {
+            console.log(`Adding sponsor image: assets/sponsors/${fileName}`); // Print each image
+
+            const sponsorItem = document.createElement("div");
+            sponsorItem.classList.add("sponsor-item");
+
+            const img = document.createElement("img");
             img.src = `assets/sponsors/${fileName}`;
-            img.alt = fileName.split('.')[0];
-  
+            img.alt = fileName.split(".")[0];
+
             sponsorItem.appendChild(img);
-            sponsorList.appendChild(sponsorItem);
+            sponsorTrack.appendChild(sponsorItem);
           });
         }
-      })
-      .catch(error => console.error('Error loading sponsor images:', error));
-  
+      }
+    })
+    .catch((error) => console.error("Error loading sponsor images:", error));
+
     /* -------------------------------------------
-       2. Wagen Items Slide-in on Scroll
-       ------------------------------------------- */
-    const wagenItems = document.querySelectorAll('.wagen-item');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+     2. Wagen Items Slide-in on Scroll
+     ------------------------------------------- */
+  const wagenItems = document.querySelectorAll(".wagen-item");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          entry.target.classList.add("visible");
         }
       });
-    }, { threshold: 0.1 });
-  
-    wagenItems.forEach(item => {
-      observer.observe(item);
-    });
+    },
+    { threshold: 0.1 }
+  );
+
+  wagenItems.forEach((item) => {
+    observer.observe(item);
   });
-  
+});
