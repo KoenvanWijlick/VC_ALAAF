@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   /* -------------------------------------------
      1. Dynamically Load Sponsor Images
-     ------------------------------------------- */
+  ------------------------------------------- */
   fetch("assets/sponsors.json")
     .then((response) => response.json())
     .then((data) => {
@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
         sponsorTrack.innerHTML = ""; // Clear any existing content
 
         // Append images twice to create a seamless infinite loop
-        for (let i = 0; i < 2; i++) { // Duplicate sponsors
+        for (let i = 0; i < 2; i++) {
           data.forEach((fileName) => {
-            console.log(`Adding sponsor image: assets/sponsors/${fileName}`); // Print each image
+            console.log(`Adding sponsor image: assets/sponsors/${fileName}`);
 
             const sponsorItem = document.createElement("div");
             sponsorItem.classList.add("sponsor-item");
@@ -32,21 +32,21 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((error) => console.error("Error loading sponsor images:", error));
 
   /* -------------------------------------------
-     2. Wagen Items Slide-in on Scroll
-     ------------------------------------------- */
-    const wagenItems = document.querySelectorAll(".wagen-item");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-  
-    wagenItems.forEach((item) => {
-      observer.observe(item);
-    });
+     2. Wagen Items Slide-in on Scroll (optional)
+  ------------------------------------------- */
+  const wagenItems = document.querySelectorAll(".wagen-item");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  wagenItems.forEach((item) => {
+    observer.observe(item);
+  });
 });

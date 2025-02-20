@@ -1,37 +1,33 @@
-/* Top Navigation Bar */
+/* ------------------------------
+   TOP NAVIGATION BAR
+------------------------------ */
 .topbar {
+  position: relative;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   background: #222;
   padding: 10px 20px;
 }
 
-/* Logo */
+.topbar .logo {
+  order: 0;
+}
+
 .topbar .logo img {
-  height: 50px;
+  max-height: 50px; /* or whatever height you prefer */
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
-/* Centered VC-ALAAF Title */
-.topbar .title {
-  flex-grow: 1;
+.topbar .title{
+  flex: 1;
+  order: 1;
   text-align: center;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 0;
 }
 
-.wagengallery {
-  color: #000000;
-  font-size: 24px;
-  text-align: center;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
-
-
-h2 {
+.title {
   color: #ffffff;
   font-size: 24px;
   text-align: center;
@@ -40,18 +36,18 @@ h2 {
   letter-spacing: 3px;
 }
 
-.topbar .title h1 {
-  color: #ffffff;
-  font-size: 32px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
-
-/* Navigation Menu */
 .topbar .menu {
+  order: 2;
   list-style: none;
   display: flex;
+}
+
+.topbar .hamburger-menu {
+  order: 3;
+  font-size: 30px;
+  cursor: pointer;
+  color: #fff;
+  display: none; 
 }
 
 .topbar .menu li {
@@ -69,7 +65,53 @@ h2 {
   color: #f39c12;
 }
 
-/* Wagen Gallery Section */
+/* Hamburger menu on mobile */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    z-index: 9999;
+  }
+
+  .topbar .menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #222;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .topbar .menu li {
+    margin: 10px 0;
+  }
+
+  .hamburger-menu {
+    position: absolute; /* or keep it in flow if you prefer */
+    right: 20px;
+    top: 10px;
+    z-index: 9999;
+  }
+}
+
+/* ------------------------------
+   HEADINGS
+------------------------------ */
+h2 {
+  color: #ffffff;
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* ------------------------------
+   GALLERY SECTION
+------------------------------ */
 .gallery {
   padding: 20px;
   text-align: center;
@@ -82,17 +124,17 @@ h2 {
   margin-bottom: 15px;
 }
 
-/* Wagen Items - Display 2 per row on Desktop */
+/* Desktop: 2 columns */
 .wagen-gallery {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 items per row on desktop */
-  gap: 5px; /* Small gap between images */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
   width: 100vw;
   height: auto;
 }
 
 .wagen-item {
-  width: 100%; /* Full width of column */
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,46 +143,43 @@ h2 {
 .wagen-item img {
   width: 100%;
   height: 100%;
-  max-height: 80vh; /* Ensure images fit properly */
-  object-fit: contain; /* Prevent images from being cropped */
+  max-height: 80vh;
+  object-fit: contain;
 }
 
-
-/* Mobile Responsive: Fullscreen Images */
+/* Mobile: single column + side margins */
 @media (max-width: 768px) {
   .wagen-gallery {
-    grid-template-columns: repeat(1, 1fr); /* 1 item per row on mobile */
+    display: block;
+    width: auto;
+    margin: 0 5px; /* left/right margin */
+    padding: 0;
+  }
+  .wagen-item {
+    margin-bottom: 20px;
+    width: 100%;
     height: auto;
   }
-
-  .wagen-item {
-    height: 100vh; /* Full height of screen */
-  }
-
   .wagen-item img {
-    width: 100vw; /* Full viewport width */
-    height: auto; /* Maintain aspect ratio */
-    max-height: 100vh; /* Prevent overflow */
-  }
-}
-
-
-/* Mobile Responsive: Display Full Width */
-@media (max-width: 768px) {
-  .wagen-item {
     width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .title {
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
   }
 }
 
-/* Hamburger Menu (Hidden on Desktop) */
-.hamburger-menu {
-  display: none;
-  font-size: 30px;
-  cursor: pointer;
-  color: #fff;
-}
-
-/* Footer Section */
+/* ------------------------------
+   FOOTER
+------------------------------ */
 footer {
   background: #222;
   color: white;
@@ -176,38 +215,9 @@ footer p {
   background: #d35400;
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .topbar {
-    position: relative;
-  }
-
-  .topbar .title h1 {
-    font-size: 24px; /* Smaller title on mobile */
-  }
-
-  .topbar .menu {
-    display: none;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background: #222;
-    flex-direction: column;
-    text-align: center;
-    padding: 10px 0;
-  }
-
-  .topbar .menu li {
-    margin: 10px 0;
-  }
-
-  .hamburger-menu {
-    display: block;
-  }
-}
-  
-/* Sponsors Section */
+/* ------------------------------
+   SPONSOR SECTION
+------------------------------ */
 .sponsor-section {
   background: #333;
   padding: 20px;
@@ -221,18 +231,18 @@ footer p {
   display: flex;
   align-items: center;
   gap: 40px;
-  width: max-content; /* Allows infinite scrolling */
-  transform: translateX(0%); /* Start off-screen to the right */
+  width: max-content;
+  transform: translateX(0%);
   animation: scrollLeft 60s linear infinite;
-  flex-wrap: nowrap; /* Ensures they are in a row */
+  flex-wrap: nowrap;
 }
 
 .sponsor-item {
-  flex: 0 0 auto; /* Prevents items from growing */
+  flex: 0 0 auto;
 }
 
 .sponsor-item img {
-  height: 80px; /* Adjust based on design */
+  height: 80px;
   width: auto;
   object-fit: contain;
   filter: brightness(0.8);
@@ -243,98 +253,67 @@ footer p {
   filter: brightness(1);
 }
 
-/* Smooth infinite scrolling effect */
 @keyframes scrollLeft {
   from {
-    transform: translateX(20%);
+    transform: translateX(0%);
   }
   to {
     transform: translateX(-100%);
   }
 }
 
-/* Become a Sponsor Section */
+/* ------------------------------
+   BECOME A SPONSOR SECTION
+------------------------------ */
 .sponsor-input {
-    background: #333;  /* Dark background for white title */
-    padding: 20px;
-    margin-top: 20px;
-    text-align: center;
-    color: #fff;  /* Ensures default text in this section is white */
-  }
-  .sponsor-input p {
-    color: #fff; /* Explicitly set paragraph text to white */
-  }
-  .sponsor-input form {
-    display: inline-block;
-    margin-top: 10px;
-    text-align: left;
-  }
-  .sponsor-input label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #fff;
-  }
-  .sponsor-input input[type="text"],
-  .sponsor-input input[type="email"],
-  .sponsor-input input[type="tel"],
-  .sponsor-input textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  .sponsor-input button {
-    background: #f39c12;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  .sponsor-input button:hover {
-    background: #d35400;
-  }
-  
-  /* Form response message */
-  .form-response p {
-    color: #fff; /* Make sure the thank-you text is white */
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 600px) {
-    .topbar {
-      flex-direction: column;
-    }
-    .topbar .menu {
-      flex-direction: column;
-      align-items: center;
-    }
-    .topbar .menu li {
-      margin: 10px 0;
-    }
-  }
-  
-  @media (max-width: 600px) {
-    .wagen-gallery {
-      margin: 0;
-      padding: 0;
-    }
-    .wagen-item {
-      width: 100%;
-      padding: 0;
-    }
-    .wagen-item img {
-      width: 100vw; /* Full viewport width */
-      height: auto;
-      object-fit: cover; /* Optional: ensures image covers the space without distortion */
-    }
-  }
+  background: #333;
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+  color: #fff;
+}
 
-  @media (max-width: 600px) {
-    .topbar .menu {
-      display: none;
-    }
-  }
-  
+.sponsor-input p {
+  color: #fff;
+}
+
+.sponsor-input form {
+  display: inline-block;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.sponsor-input label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.sponsor-input input[type="text"],
+.sponsor-input input[type="email"],
+.sponsor-input input[type="tel"],
+.sponsor-input textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.sponsor-input button {
+  background: #f39c12;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.sponsor-input button:hover {
+  background: #d35400;
+}
+
+.form-response p {
+  color: #fff;
+}
