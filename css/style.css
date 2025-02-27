@@ -264,10 +264,10 @@ footer p {
   display: flex;
   align-items: center;
   gap: 40px;
-  width: 100%; /* Now it stays inside the container */
+  width: 100%; 
   white-space: nowrap;
   flex-wrap: nowrap;
-  animation: scrollLeft 60s linear infinite;
+  animation: scrollLeft 120s linear infinite;
 }
 
 /* Individual Sponsor Items */
@@ -289,7 +289,7 @@ footer p {
 /* Fix scrolling animation */
 @keyframes scrollLeft {
   from {
-    transform: translateX(0%);
+    transform: translateX(100%);
   }
   to {
     transform: translateX(-300%);
@@ -299,7 +299,7 @@ footer p {
 /* Responsive Fix for Small Screens */
 @media (max-width: 768px) {
   .sponsor-track {
-    animation-duration: 15s; /* Speed up animation on mobile */
+    animation-duration: 30s; /* Speed up animation on mobile */
   }
   .sponsor-item img {
     height: 50px; /* Scale down for mobile */
