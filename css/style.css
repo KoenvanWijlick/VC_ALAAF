@@ -264,7 +264,7 @@ footer p {
   display: flex;
   align-items: center;
   gap: 40px;
-  width: 100%; 
+  width: 100%;
   white-space: nowrap;
   flex-wrap: nowrap;
   animation: scrollLeft 120s linear infinite;
@@ -296,13 +296,24 @@ footer p {
   }
 }
 
-/* Responsive Fix for Small Screens */
+/* Mobile Adjustments */
 @media (max-width: 768px) {
   .sponsor-track {
-    animation-duration: 30s; /* Speed up animation on mobile */
+    /* Use a slightly faster (shorter duration) animation */
+    animation: scrollLeftMobile 25s linear infinite;
   }
   .sponsor-item img {
-    height: 50px; /* Scale down for mobile */
+    height: 50px;
+  }
+}
+
+@keyframes scrollLeftMobile {
+  from {
+    transform: translateX(100%);
+  }
+  /* Adjust this value if sponsors still don’t completely scroll off */
+  to {
+    transform: translateX(-200%);
   }
 }
 
