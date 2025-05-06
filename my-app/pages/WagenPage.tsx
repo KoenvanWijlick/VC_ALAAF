@@ -1,5 +1,5 @@
 import { useState } from "react";
-import WebLayout from "@/components/WebLayout";
+import WebLayout from "../components/WebLayout";
 import Head from "next/head";
 import Image from "next/image";
 import {
@@ -76,7 +76,7 @@ export default function WagensPage() {
         </Container>
       </Box>
 
-      {/* New gradient background wrapper */}
+      {/* Page background */}
       <Box className={styles.pageBackground}>
         <Container size="lg" className={styles.container}>
           {items.map((wagen, i) => (
@@ -85,14 +85,17 @@ export default function WagensPage() {
               mounted
               transition="fade"
               duration={400}
-              delay={i * 120}
+              timingFunction="ease"
             >
-              {(style) => (
+              {(transitionStyles) => (
                 <Paper
+                  style={{
+                    ...transitionStyles,
+                    transitionDelay: `${i * 120}ms`,
+                  }}
                   className={`${styles.card} ${
                     i % 2 === 0 ? styles.normal : styles.reversed
                   }`}
-                  style={style}
                   radius="md"
                   shadow="md"
                 >
@@ -110,7 +113,7 @@ export default function WagensPage() {
 
                   {/* Text */}
                   <Box className={styles.text}>
-                    <Group spacing="xs" className={styles.yearRow}>
+                    <Group mb={4} className={styles.yearRow}>
                       <Divider
                         className={styles.yearBar}
                         orientation="vertical"
@@ -130,7 +133,7 @@ export default function WagensPage() {
                     {wagen.gallery && (
                       <Button
                         size="xs"
-                        leftIcon={<IconPhoto size={14} />}
+                        leftSection={<IconPhoto size={14} />}
                         onClick={() => {
                           setGallery(wagen.gallery!);
                           setOpened(true);
@@ -157,7 +160,6 @@ export default function WagensPage() {
       >
         <Carousel
           withIndicators
-          loop
           slideSize="100%"
           height={400}
           styles={{ indicator: { background: "#0093d0" } }}

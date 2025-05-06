@@ -6,8 +6,8 @@ export default function WebLayout({ children }: { children: React.ReactNode }) {
   return (
     <AppShell
       padding={0}
-      header={{ height: 60, fixed: true }}
-      navbar={null}
+      header={{ height: 60 }}
+      navbar={undefined}
       styles={{
         main: {
           marginTop: 60,

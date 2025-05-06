@@ -1,5 +1,5 @@
 import { useState } from "react";
-import WebLayout from "@/components/WebLayout";
+import WebLayout from "../components/WebLayout";
 import Head from "next/head";
 import Image from "next/image";
 import {
@@ -19,8 +19,9 @@ import {
 import { useForm } from "@mantine/form";
 import { IconBrandInstagram, IconCheck, IconX } from "@tabler/icons-react";
 import { Transition } from "@mantine/core";
-import SponsorMarquee from "@/components/Sponsors/SponsorMarquee";
+import SponsorMarquee from "../components/Sponsors/SponsorMarquee";
 import styles from "@/styles/HomePage.module.css";
+import { useMediaQuery } from "@mantine/hooks";
 
 export default function HomePage() {
   const [loading, setLoading] = useState(false);
@@ -29,10 +30,10 @@ export default function HomePage() {
   const form = useForm({
     initialValues: { naam: "", email: "", telefoon: "", bericht: "" },
     validate: {
-      naam: (v) => (v.trim().length < 2 ? "Vul uw naam in" : null),
-      email: (v) => (/^\S+@\S+$/.test(v) ? null : "Ongeldig e-mailadres"),
-      telefoon: (v) => (/^\+?\d{6,15}$/.test(v) ? null : "Ongeldig telefoonnummer"),
-      bericht: (v) => (v.trim().length === 0 ? "Vul een bericht in" : null),
+      naam: (v: string) => (v.trim().length < 2 ? "Vul uw naam in" : null),
+      email: (v: string) => (/^\S+@\S+$/.test(v) ? null : "Ongeldig e-mailadres"),
+      telefoon: (v: string) => (/^\+?\d{6,15}$/.test(v) ? null : "Ongeldig telefoonnummer"),
+      bericht: (v: string) => (v.trim().length === 0 ? "Vul een bericht in" : null),
     },
   });
 
@@ -40,7 +41,7 @@ export default function HomePage() {
     setLoading(true);
     try {
       const fd = new FormData();
-      Object.entries(values).forEach(([k, v]) => fd.append(k, v));
+      Object.entries(values).forEach(([k, v]) => fd.append(k, v as string));
       const res = await fetch("https://formspree.io/f/xyzkbyza", {
         method: "POST",
         headers: { Accept: "application/json" },
@@ -73,7 +74,7 @@ export default function HomePage() {
           <Text className={styles.heroSubtitle}>
             Bouw mee aan onze carnavalswagen 2025
           </Text>
-          <Button size="lg" radius="xl" href="#sponsor" className={styles.cta}>
+          <Button size="lg" radius="xl" component="a" href="#sponsor" className={styles.cta}>
             Word sponsor
           </Button>
         </Container>
@@ -99,12 +100,12 @@ export default function HomePage() {
 
         {/* Bouwproces */}
         <Container size="lg" my="xl" className={styles.section}>
-          <Title order={2} align="center" mb="md">
+          <Title order={2} ta="center" mb="md">
             Het bouwproces
           </Title>
-          <SimpleGrid cols={2} spacing="md" breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
+          <SimpleGrid cols={useMediaQuery('(max-width: 768px)') ? 1 : 2} spacing="md">
             {["1", "2", "3", "4"].map((n, i) => (
-              <Transition key={n} mounted transition="fade" duration={300} delay={100 * i}>
+              <Transition key={n} mounted={true} transition="fade" duration={300 + 100 * i}>
                 {(transitionStyles) => (
                   <Card shadow="sm" p={0} className={styles.card} style={transitionStyles}>
                     <Box className={styles.imageBox}>
@@ -126,10 +127,10 @@ export default function HomePage() {
         {/* Sponsoren */}
         <Container id="sponsor" size="lg" my="xl">
           <Paper shadow="xs" p="lg" className={styles.sponsorPaper}>
-            <Title order={3} align="center" mb="sm">
+            <Title order={3} ta="center" mb="sm">
               Onze Sponsoren!
             </Title>
-            <Text align="center" mb="md">
+            <Text ta="center" mb="md">
               Een shout-out naar al onze geweldige partners.
             </Text>
             <SponsorMarquee />
@@ -202,7 +203,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <Box component="footer" className={styles.footer}>
-        <Text align="center" mb="xs">
+        <Text ta="center" mb="xs">
           Volg ons op Instagram
         </Text>
         <Button
@@ -212,7 +213,7 @@ export default function HomePage() {
           variant="gradient"
           gradient={{ from: "pink", to: "orange" }}
           radius="xl"
-          leftIcon={<IconBrandInstagram size={18} />}
+          rightSection={<IconBrandInstagram size={18} />}
         >
           Instagram
         </Button>

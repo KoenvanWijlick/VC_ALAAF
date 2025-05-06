@@ -17,13 +17,13 @@ export default function NavbarSimpleContent() {
     <Box component="nav" className={classes.nav}>
       <Container className={classes.navContainer}>
         {/* logo + title */}
-        <Group align="center" spacing="xs" noWrap>
+        <Group align="center" gap={8} wrap="nowrap">
           <Image src="/images/Logo.png" width={32} height={32} alt="VC-ALAAF Logo" />
           <Text className={classes.title}>VC-ALAAF</Text>
         </Group>
 
         {/* nav links */}
-        <Group className={classes.links} noWrap>
+        <Group className={classes.links} wrap="nowrap">
           {links.map(({ href, label, icon: Icon }) => {
             const active = pathname === href;
             return (
