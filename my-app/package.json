@@ -1,0 +1,22 @@
+{
+  "name": "vc-alaaf",
+  "version": "1.0.0",
+  "homepage": "https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPO-NAME",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "deploy": "npm run build && npm run export && gh-pages -d out"
+  },
+  "dependencies": {
+    "@mantine/core": "...",
+    "@mantine/hooks": "...",
+    "next": "...",
+    "react": "...",
+    "react-dom": "..."
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "^13.0.0",
+    "gh-pages": "^6.0.0"
+  }
+}
