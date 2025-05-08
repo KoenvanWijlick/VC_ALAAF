@@ -128,7 +128,7 @@ export default function HomePage() {
               Onze Sponsoren!
             </Title>
             <Text ta="center" mb="md">
-              Een shout-out naar al onze geweldige partners.
+              Een shout-out naar al onze geweldige sponsoren.
             </Text>
             <SponsorMarquee />
           </Paper>
