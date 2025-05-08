@@ -107,7 +107,7 @@ export default function HomePage() {
                   <Card shadow="sm" p={0} className={styles.card} style={transitionStyles}>
                     <Box className={styles.imageBox}>
                       <Image
-                        src={`/images/wagen_2025_${n}.png`}
+                        src={`/VC_ALAAF/images/wagen_2025_${n}.png`}
                         alt={`Wagen ${n}`}
                         fill
                         style={{ objectFit: "cover" }}
