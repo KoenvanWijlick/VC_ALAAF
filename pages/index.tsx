@@ -80,7 +80,7 @@ export default function HomePage() {
         </Container>
       </Box>
 
-      {/* Wrap all sections in the new gradient background */}
+      {/* Wrap all sections in gradient background */}
       <Box className={styles.pageBackground}>
         {/* Video */}
         <Container size="lg" my="xl">
