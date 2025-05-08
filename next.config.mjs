@@ -16,8 +16,6 @@ const config = {
   images: {
     unoptimized: true, // Required for export mode
   },
-  basePath: `/${repo}`,
-  assetPrefix: `/${repo}/`,
 };
 
 export default withBundleAnalyzer(config);
