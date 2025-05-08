@@ -16,7 +16,7 @@ import {
 import { Carousel } from "@mantine/carousel";
 import { Transition } from "@mantine/core";
 import { IconPhoto } from "@tabler/icons-react";
-import styles from "@/styles/WagenEarlier.module.css";
+import styles from "../styles/WagenEarlier.module.css";
 
 type Wagen = {
   year: string;

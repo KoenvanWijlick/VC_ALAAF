@@ -20,7 +20,7 @@ import { useForm } from "@mantine/form";
 import { IconBrandInstagram, IconCheck, IconX } from "@tabler/icons-react";
 import { Transition } from "@mantine/core";
 import SponsorMarquee from "../components/Sponsors/SponsorMarquee";
-import styles from "@/styles/HomePage.module.css";
+import styles from "../styles/HomePage.module.css";
 import { useMediaQuery } from "@mantine/hooks";
 
 export default function HomePage() {
@@ -72,7 +72,7 @@ export default function HomePage() {
             Welkom bij VC-ALAAF
           </Title>
           <Text className={styles.heroSubtitle}>
-            Bouw mee aan onze carnavalswagen 2025
+            Bouw mee aan onze carnavalswagen 2026
           </Text>
           <Button size="lg" radius="xl" component="a" href="#sponsor" className={styles.cta}>
             Word sponsor
@@ -80,9 +80,7 @@ export default function HomePage() {
         </Container>
       </Box>
 
-      {/* ———————————————————————————————
-           Wrap all sections in the new gradient background
-         ——————————————————————————————— */}
+      {/* Wrap all sections in the new gradient background */}
       <Box className={styles.pageBackground}>
         {/* Video */}
         <Container size="lg" my="xl">
@@ -90,7 +88,6 @@ export default function HomePage() {
             <iframe
               src="https://www.youtube.com/embed/aiQFMUmnQ6s?si=WMiAg-NMGlDEH-k_"
               title="YouTube video player"
-              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               className={styles.iframe}
@@ -125,7 +122,7 @@ export default function HomePage() {
         </Container>
 
         {/* Sponsoren */}
-        <Container id="sponsor" size="lg" my="xl">
+        <Container id="sponsor" my="xl" className={styles.fullWidth}>
           <Paper shadow="xs" p="lg" className={styles.sponsorPaper}>
             <Title order={3} ta="center" mb="sm">
               Onze Sponsoren!

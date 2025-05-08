@@ -5,7 +5,6 @@ export default function Document() {
   return (
     <Html lang="en" {...mantineHtmlProps}>
       <Head>
-        <title>VC AL-AAF.</title>
         <link rel="icon" href="/images/Logo.png" />
       </Head>
 
