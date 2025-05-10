@@ -19,7 +19,7 @@ export default function NavbarSimpleContent() {
         {/* logo + title */}
         <Group align="center" gap={8} wrap="nowrap">
           <Image src="/images/Logo.png" width={32} height={32} alt="VC-ALAAF Logo" />
-          <Text className={classes.title}>VC-ALAAF</Text>
+          <Text className={classes.title}>VC AL-AAF</Text>
         </Group>
 
         {/* nav links */}
