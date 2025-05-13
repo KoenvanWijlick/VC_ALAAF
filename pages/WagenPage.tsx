@@ -34,7 +34,7 @@ export default function WagensPage() {
     {
       year: "2025",
       theme: "Kermis",
-      desc: "De kermis is os um ut aeve, vasteloavend—det is os leave!",
+      desc: "De kermis is os um ut aeve, vastelaovend—det is os laeve!",
       image: "/images/Wagen2025.jpeg",
       gallery: [
         "/images/wagen2025/foto1.jpg",
@@ -83,7 +83,7 @@ export default function WagensPage() {
     {
       year: "2023",
       theme: "Skihut",
-      desc: "Bij os zit de vasteloavend in de lift!",
+      desc: "Bij os zit de vastelaovend in de lift!",
       image: "/images/Wagen2023.jpeg",
       gallery: [
         "/images/wagen2023/foto1.jpg",
@@ -94,7 +94,7 @@ export default function WagensPage() {
     {
       year: "2020",
       theme: "Boer",
-      desc: "Neet naor het malieveld, vasteloavend det telt!",
+      desc: "Neet naor het malieveld, vastelaovend det telt!",
       image: "/images/Wagen2020.jpeg",
       gallery: [
         "/images/wagen2020/foto1.jpg",
