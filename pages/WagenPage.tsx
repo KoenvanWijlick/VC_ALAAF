@@ -10,6 +10,8 @@ import {
   Text,
   Paper,
   Divider,
+  Center,
+  Loader,
   Group,
   Button,
   Modal,
@@ -102,7 +104,7 @@ export default function WagensPage() {
       ],
     },
   ];
-
+  const [loaded, setLoaded] = useState<Record<string, boolean>>({});
   const [opened, setOpened] = useState(false);
   const [gallery, setGallery] = useState<string[]>([]);
 
@@ -199,26 +201,30 @@ export default function WagensPage() {
       </Box>
 
       {/* Gallery modal */}
-      <Modal
-        opened={opened}
-        onClose={() => setOpened(false)}
-        size="lg"
-        centered
-      >
+      <Modal opened={opened} onClose={() => setOpened(false)} size="lg" centered>
         <Carousel
           withIndicators
           slideSize="100%"
-          height={"30rem"}
+          height="30rem"
           styles={{ indicator: { background: "#0093d0" } }}
         >
           {gallery.map((src) => (
             <Carousel.Slide key={src}>
-              <Box className={styles.slideImageWrapper}>
+              <Box className={styles.slideImageWrapper} sx={{ position: 'relative' }}>
+                {/* spinner while not loaded */}
+                {!loaded[src] && (
+                  <Center sx={{ width: '100%', height: '100%', position: 'absolute', top: 0 }}>
+                    <Loader />
+                  </Center>
+                )}
                 <Image
                   src={src}
                   alt="Galerijfoto"
                   fill
                   style={{ objectFit: "contain", borderRadius: 8 }}
+                  onLoadingComplete={() =>
+                    setLoaded((m) => ({ ...m, [src]: true }))
+                  }
                 />
               </Box>
             </Carousel.Slide>

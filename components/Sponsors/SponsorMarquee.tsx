@@ -1,11 +1,26 @@
+// components/Sponsors/SponsorMarquee.tsx
+
+import { useMemo } from "react";
 import { Container, Box } from "@mantine/core";
 import Image from "next/image";
 import sponsorList from "../../public/sponsors/sponsors.json";
 import styles from "./SponsorMarquee.module.css";
 
-const logos = sponsorList.map((file) => `/sponsors/${file}`);
+function shuffleArray<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
 
 export default function SponsorMarquee() {
+  const logos = useMemo(
+    () =>
+      shuffleArray(sponsorList).map((file) => `/sponsors/${file}`),
+    []
+  );
   const items = [...logos, ...logos];
 
   return (
@@ -16,10 +31,10 @@ export default function SponsorMarquee() {
             <Image
               src={src}
               alt={`Sponsor ${idx + 1}`}
-              fill                              
+              fill
               sizes="260px"
-              style={{ objectFit: "contain" }}   
-              priority={idx < logos.length}      
+              style={{ objectFit: "contain" }}
+              priority={idx < logos.length}
             />
           </Box>
         ))}
