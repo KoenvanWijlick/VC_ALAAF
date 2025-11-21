@@ -1,44 +1,27 @@
-// components/Sponsors/SponsorMarquee.tsx
+"use client";
 
 import { useMemo } from "react";
-import { Container, Box } from "@mantine/core";
 import Image from "next/image";
 import sponsorList from "../../public/sponsors/sponsors.json";
 import styles from "./SponsorMarquee.module.css";
 
-function shuffleArray<T>(arr: T[]): T[] {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
+function shuffle<T>(items: T[]) {
+  return [...items].sort(() => Math.random() - 0.5);
 }
 
 export default function SponsorMarquee() {
-  const logos = useMemo(
-    () =>
-      shuffleArray(sponsorList).map((file) => `/sponsors/${file}`),
-    []
-  );
+  const logos = useMemo(() => shuffle(sponsorList).map((file) => `/sponsors/${file}`), []);
   const items = [...logos, ...logos];
 
   return (
-    <Container fluid className={styles.marqueeWrapper}>
-      <Box className={styles.marqueeTrack}>
+    <div className={styles.marqueeWrapper}>
+      <div className={styles.marqueeTrack} aria-label="Sponsor logos in een lopende band">
         {items.map((src, idx) => (
-          <Box key={idx} className={styles.marqueeItem}>
-            <Image
-              src={src}
-              alt={`Sponsor ${idx + 1}`}
-              fill
-              sizes="260px"
-              style={{ objectFit: "contain" }}
-              priority={idx < logos.length}
-            />
-          </Box>
+          <figure key={`${src}-${idx}`} className={styles.marqueeItem}>
+            <Image src={src} alt={`Sponsor ${idx + 1}`} fill sizes="260px" style={{ objectFit: "contain" }} />
+          </figure>
         ))}
-      </Box>
-    </Container>
+      </div>
+    </div>
   );
 }

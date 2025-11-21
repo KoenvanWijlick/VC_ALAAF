@@ -1,0 +1,80 @@
+:root {
+  color-scheme: light;
+  --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, monospace;
+
+  --color-bg: oklch(98% 0 0);
+  --color-bg-muted: oklch(96% 0.01 180);
+  --color-surface: oklch(100% 0 0);
+  --color-surface-elevated: oklch(95% 0.02 200);
+  --color-border: oklch(88% 0.02 200);
+  --color-text: oklch(23% 0.05 200);
+  --color-text-muted: oklch(40% 0.03 200);
+  --color-primary: oklch(65% 0.15 230);
+  --color-primary-strong: oklch(58% 0.2 250);
+  --color-primary-muted: oklch(80% 0.1 230);
+  --color-accent: oklch(70% 0.18 30);
+  --color-success: oklch(70% 0.11 150);
+  --color-danger: oklch(65% 0.15 25);
+  --color-warning: oklch(80% 0.16 80);
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 20px 60px rgba(15, 23, 42, 0.12);
+
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-full: 999px;
+
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  --z-base: 1;
+  --z-dropdown: 10;
+  --z-overlay: 100;
+  --z-toast: 200;
+
+  --duration-fast: 120ms;
+  --duration-normal: 200ms;
+  --duration-slow: 320ms;
+  --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --color-bg: oklch(15% 0.02 200);
+  --color-bg-muted: oklch(18% 0.03 200);
+  --color-surface: oklch(22% 0.03 200);
+  --color-surface-elevated: oklch(26% 0.03 200);
+  --color-border: oklch(35% 0.03 210);
+  --color-text: oklch(94% 0.03 200);
+  --color-text-muted: oklch(72% 0.02 200);
+  --color-primary: oklch(70% 0.18 230);
+  --color-primary-strong: oklch(82% 0.17 235);
+  --color-primary-muted: oklch(45% 0.12 230);
+  --color-accent: oklch(80% 0.12 70);
+  --color-success: oklch(78% 0.1 150);
+  --color-danger: oklch(75% 0.15 25);
+  --color-warning: oklch(85% 0.12 80);
+}
+
+[data-theme='contrast'] {
+  --color-bg: oklch(100% 0 0);
+  --color-text: oklch(10% 0 0);
+  --color-primary: oklch(55% 0.22 260);
+  --color-border: oklch(20% 0 0);
+  --shadow-sm: 0 0 0 2px var(--color-border);
+  --shadow-md: 0 0 0 3px var(--color-border);
+  --shadow-lg: 0 0 0 4px var(--color-border);
+}

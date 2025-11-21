@@ -1,7 +1,6 @@
 import { useState } from "react";
 import WebLayout from "../components/WebLayout";
 import Head from "next/head";
-import '@mantine/carousel/styles.css';
 import Image from "next/image";
 import {
   Container,
@@ -31,6 +30,13 @@ type Wagen = {
 
 export default function WagensPage() {
   const items: Wagen[] = [
+    {
+      year: "2026",
+      theme: "???",
+      desc: "Het nieuwe ontwerp blijft nog even geheim. We vullen deze plek zodra de eerste schetsen klaar zijn.",
+      image: "/images/Wagen2025.jpeg",
+      gallery: [],
+    },
     {
       year: "2025",
       theme: "Kermis",
