@@ -32,6 +32,12 @@ type Wagen = {
 export default function WagensPage() {
   const items: Wagen[] = [
     {
+      year: "2026",
+      theme: "???",
+      desc: "Wat wordt het dit jaar? Blijf op de hoogte en laat je verrassen!",
+      image: "/images/Wagen2026.jpeg",
+    },
+    {
       year: "2025",
       theme: "Kermis",
       desc: "De kermis is os um ut aeve, vastelaovend—det is os laeve!",
@@ -163,7 +169,7 @@ export default function WagensPage() {
 
                   {/* Text */}
                   <Box className={styles.text}>
-                    <Group mb={4} className={styles.yearRow}>
+                    <Group className={styles.yearRow}>
                       <Divider
                         className={styles.yearBar}
                         orientation="vertical"
@@ -173,23 +179,37 @@ export default function WagensPage() {
                       </Title>
                     </Group>
 
-                    <Title order={4} className={styles.theme} mb={4}>
+                    <Title order={3} className={styles.theme}>
                       Thema: {wagen.theme}
                     </Title>
-                    <Text size="sm" mb="md">
+                    <Text
+                      size="md"
+                      style={{
+                        color: '#475569',
+                        lineHeight: 1.7,
+                        marginBottom: '1.5rem'
+                      }}
+                    >
                       {wagen.desc}
                     </Text>
 
                     {wagen.gallery && (
                       <Button
-                        size="xs"
-                        leftSection={<IconPhoto size={14} />}
+                        size="md"
+                        leftSection={<IconPhoto size={18} />}
                         onClick={() => {
                           setGallery(wagen.gallery!);
                           setOpened(true);
                         }}
+                        style={{
+                          background: 'linear-gradient(135deg, #0093d0 0%, #00b4d8 100%)',
+                          border: 'none',
+                          fontWeight: 600,
+                          borderRadius: '12px',
+                          boxShadow: '0 4px 12px rgba(0, 147, 208, 0.3)',
+                        }}
                       >
-                        Bekijk meer foto’s
+                        Bekijk meer foto's
                       </Button>
                     )}
                   </Box>
@@ -201,27 +221,76 @@ export default function WagensPage() {
       </Box>
 
       {/* Gallery modal */}
-      <Modal opened={opened} onClose={() => setOpened(false)} size="lg" centered>
+      <Modal
+        opened={opened}
+        onClose={() => setOpened(false)}
+        size="xl"
+        centered
+        padding="xl"
+        radius="lg"
+        styles={{
+          content: {
+            background: 'linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%)',
+          },
+          header: {
+            background: 'transparent',
+          },
+          body: {
+            padding: '1rem',
+          },
+        }}
+      >
         <Carousel
           withIndicators
           slideSize="100%"
-          height="30rem"
-          styles={{ indicator: { background: "#0093d0" } }}
+          height="35rem"
+          styles={{
+            indicator: {
+              background: '#0093d0',
+              width: 12,
+              height: 12,
+              transition: 'all 0.3s ease',
+              '&[data-active]': {
+                background: 'linear-gradient(135deg, #0093d0 0%, #00b4d8 100%)',
+                width: 32,
+              },
+            },
+            control: {
+              background: 'rgba(255, 255, 255, 0.9)',
+              border: 'none',
+              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                background: '#ffffff',
+                transform: 'scale(1.1)',
+              },
+            },
+          }}
         >
           {gallery.map((src) => (
             <Carousel.Slide key={src}>
               <Box className={styles.slideImageWrapper} style={{ position: 'relative' }}>
-                {/* spinner while not loaded */}
                 {!loaded[src] && (
-                  <Center style={{ width: '100%', height: '100%', position: 'absolute', top: 0 }}>
-                    <Loader />
+                  <Center
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      position: 'absolute',
+                      top: 0,
+                      zIndex: 1,
+                    }}
+                  >
+                    <Loader size="lg" color="#0093d0" />
                   </Center>
                 )}
                 <Image
                   src={src}
                   alt="Galerijfoto"
                   fill
-                  style={{ objectFit: "contain", borderRadius: 8 }}
+                  style={{
+                    objectFit: 'contain',
+                    borderRadius: 12,
+                  }}
                   onLoadingComplete={() =>
                     setLoaded((m) => ({ ...m, [src]: true }))
                   }
