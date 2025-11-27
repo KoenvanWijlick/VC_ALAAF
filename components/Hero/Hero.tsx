@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Button, Group } from "@mantine/core";
 import {
@@ -11,19 +11,57 @@ import {
 } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { Carousel } from "@mantine/carousel";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
   const { t } = useTranslation();
 
+  const wagen2026Videos = [
+    "/images/wagen2026/video1.mp4",
+    "/images/wagen2026/video2.mp4",
+    "/images/wagen2026/video3.mp4",
+    "/images/wagen2026/video4.mp4",
+    "/images/wagen2026/video5.mp4",
+    "/images/wagen2026/video6.mp4",
+    "/images/wagen2026/video7.mp4",
+  ];
+
   return (
     <section id="intro" className={styles.wrapper}>
-      {/* Left – full-bleed carnival image */}
+      {/* Left – full-bleed carnival image/video carousel */}
       <div className={styles.image} aria-hidden="true">
-        <img
-          src="/images/wagen_2025_1.png"
-          alt="VC AL-AAF Carnival Float"
-        />
+        <Carousel
+          withIndicators
+          withControls
+          styles={{
+            root: { position: "absolute", inset: 0, height: "100%", width: "100%" },
+            viewport: { height: "100%" },
+            container: { height: "100%" },
+            slide: { height: "100%" },
+            indicator: { background: "var(--accent)", zIndex: 3 },
+            control: { zIndex: 3 },
+          }}
+        >
+          {wagen2026Videos.map((videoSrc, idx) => (
+            <Carousel.Slide key={`video-${idx}`}>
+              <video
+                src={videoSrc}
+                autoPlay
+                muted
+                loop
+                playsInline
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            </Carousel.Slide>
+          ))}
+        </Carousel>
       </div>
 
       {/* Right – content */}

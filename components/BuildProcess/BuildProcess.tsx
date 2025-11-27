@@ -12,7 +12,12 @@ export default function BuildProcess() {
   const { t } = useTranslation();
   const isMobile = useMediaQuery("(max-width: 768px)");
 
-  const images = ["1", "2", "3", "4"];
+  const mediaItems = [
+    { type: "video", src: "/images/wagen2026/video1.mp4" },
+    { type: "video", src: "/images/wagen2026/video2.mp4" },
+    { type: "video", src: "/images/wagen2026/video3.mp4" },
+    { type: "video", src: "/images/wagen2026/video4.mp4" },
+  ];
 
   return (
     <section id="build-process" className={classes.wrapper}>
@@ -28,9 +33,9 @@ export default function BuildProcess() {
         </p>
 
         <SimpleGrid cols={isMobile ? 1 : 2} spacing="md" className={classes.grid}>
-          {images.map((n, i) => (
+          {mediaItems.map((item, i) => (
             <Transition
-              key={n}
+              key={`media-${i}`}
               mounted={true}
               transition="fade"
               duration={300 + 100 * i}
@@ -42,14 +47,31 @@ export default function BuildProcess() {
                   className={classes.card}
                   style={transitionStyles}
                 >
-                  <Box className={classes.imageBox}>
-                    <Image
-                      src={`/images/wagen_2025_${n}.png`}
-                      alt={`Bouwproces stap ${n}`}
-                      fill
-                      style={{ objectFit: "cover" }}
-                      className={classes.image}
-                    />
+                  <Box className={classes.imageBox} style={{ paddingBottom: 0, height: "400px" }}>
+                    {item.type === "video" ? (
+                      <video
+                        src={item.src}
+                        controls
+                        muted
+                        loop
+                        playsInline
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          display: "block",
+                        }}
+                        className={classes.image}
+                      />
+                    ) : (
+                      <Image
+                        src={item.src}
+                        alt={`Bouwproces stap ${i + 1}`}
+                        fill
+                        style={{ objectFit: "cover" }}
+                        className={classes.image}
+                      />
+                    )}
                   </Box>
                 </Card>
               )}

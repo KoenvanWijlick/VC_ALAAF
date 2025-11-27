@@ -38,6 +38,15 @@ const wagensData: Wagen[] = [
     theme: "??",
     desc: "??",
     image: "/images/Wagen2026.png",
+    gallery: [
+      "/images/wagen2026/video1.mp4",
+      "/images/wagen2026/video2.mp4",
+      "/images/wagen2026/video3.mp4",
+      "/images/wagen2026/video4.mp4",
+      "/images/wagen2026/video5.mp4",
+      "/images/wagen2026/video6.mp4",
+      "/images/wagen2026/video7.mp4",
+    ],
   },
   {
     year: "2025",
@@ -219,18 +228,36 @@ export default function WagensPage() {
           height="30rem"
           styles={{ indicator: { background: "var(--accent)" } }}
         >
-          {gallery.map((src, idx) => (
-            <Carousel.Slide key={`${src}-${idx}`}>
-              <Box style={{ position: "relative", width: "100%", height: "100%" }}>
-                <Image
-                  src={src}
-                  alt={`Gallery photo ${idx + 1}`}
-                  fill
-                  style={{ objectFit: "contain", borderRadius: 8 }}
-                />
-              </Box>
-            </Carousel.Slide>
-          ))}
+          {gallery.map((src, idx) => {
+            const isVideo = src.endsWith(".mp4") || src.endsWith(".webm") || src.endsWith(".ogg");
+            return (
+              <Carousel.Slide key={`${src}-${idx}`}>
+                <Box style={{ position: "relative", width: "100%", height: "100%" }}>
+                  {isVideo ? (
+                    <video
+                      src={src}
+                      controls
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "contain",
+                        borderRadius: 8,
+                      }}
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : (
+                    <Image
+                      src={src}
+                      alt={`Gallery photo ${idx + 1}`}
+                      fill
+                      style={{ objectFit: "contain", borderRadius: 8 }}
+                    />
+                  )}
+                </Box>
+              </Carousel.Slide>
+            );
+          })}
         </Carousel>
       </Modal>
 
