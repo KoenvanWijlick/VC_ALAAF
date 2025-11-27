@@ -1,0 +1,39 @@
+.wrapper {
+  background: transparent;
+  padding: clamp(4rem, 8vw, 7rem) 1rem;
+  color: var(--light-text);
+}
+
+.container {
+  max-width: 900px;
+}
+
+.paper {
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  padding: clamp(2rem, 5vw, 3rem);
+  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.dark .paper {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.heading {
+  font-family: "Bebas Neue", "Oswald", sans-serif;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  letter-spacing: 0.04em;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.text {
+  text-align: center;
+  font-size: clamp(1rem, 1.15vw + 0.9rem, 1.1rem);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+}

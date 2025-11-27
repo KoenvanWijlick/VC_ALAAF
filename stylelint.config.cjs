@@ -1,0 +1,9 @@
+module.exports = {
+  extends: ["stylelint-config-standard"],
+  rules: {
+    "selector-class-pattern": null,
+    "custom-property-pattern": null,
+    "alpha-value-notation": "number",
+    "color-function-notation": "legacy",
+  },
+};

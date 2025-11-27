@@ -1,0 +1,70 @@
+/* Section wrapper */
+.wrapper {
+  background: transparent;
+  padding: clamp(4rem, 8vw, 7rem) 1rem;
+  display: flex;
+  justify-content: center;
+  color: var(--light-text);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.photoWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--card-radius);
+  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.45);
+}
+
+.photoWrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.content {
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  padding: clamp(2rem, 5vw, 3rem);
+  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+}
+
+.heading {
+  font-family: "Bebas Neue", "Oswald", sans-serif;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  letter-spacing: 0.04em;
+  margin: 0 0 1rem;
+  color: var(--accent);
+}
+
+.paragraph {
+  font-size: clamp(1rem, 1.15vw + 0.9rem, 1.1rem);
+  line-height: 1.65;
+  margin: 0;
+  text-align: justify;
+  color: var(--text-color);
+}
+
+/* Mobile stacking */
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .photoWrap {
+    aspect-ratio: 4 / 3;
+  }
+}

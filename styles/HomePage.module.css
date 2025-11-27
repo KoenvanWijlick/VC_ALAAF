@@ -1,5 +1,4 @@
-/* ---------- variables (local to module) ---------- */
-.card { --cyan: #0093d0; --navy: #1c3d6e; }
+/* Use global CSS variables from globals.css */
 
 /* ---------- generic ---------- */
 .section {
@@ -11,13 +10,14 @@
 .hero {
   background: linear-gradient(
     135deg,
-    var(--primary) 0%,
+    var(--primary-color) 0%,
     #00427a 50%,
     #005c9e 100%
   );
-  padding: 6rem 0 4rem;      /* extra top space under nav */
+  padding: 6rem 0 4rem;
   text-align: center;
   color: #fff;
+  position: relative;
 }
 .heroTitle {
   font-size: clamp(2.5rem, 7vw, 3.75rem);
@@ -31,7 +31,7 @@
   margin-bottom: 2.2rem;
 }
 .cta {
-  background: var(--secondary);
+  background: var(--accent);
   color: #fff;
   font-weight: 600;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -91,21 +91,33 @@
 .sponsorPaper {
   max-width: 900px;
   margin-inline: auto;
-  border-radius: 12px;
-  background: #fff;
-  border: 1px solid #e5e7eb;
+  border-radius: var(--card-radius);
+  background: var(--card-bg);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow);
+}
+
+.dark .sponsorPaper {
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* ---------- form ---------- */
 .formPaper {
-  border-radius: 12px;
-  background: #fff;
+  border-radius: var(--card-radius);
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
 }
 .formText {
   text-align: center;
 }
 .phone {
-  color: var(--secondary);
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.phone:hover {
+  text-decoration: underline;
 }
 .form input,
 .form textarea {
@@ -121,8 +133,8 @@
 .form input:focus,
 .form textarea:focus {
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(0, 40, 86, 0.2);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.2);
 }
 
 /* ---------- inline notification ---------- */

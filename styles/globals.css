@@ -1,7 +1,77 @@
 :root {
-    --primary: #002856;      /* Marmon navy */
-    --secondary: #0093d0;    /* cyan accent */
-    --bg-light: #f5f7fa;
-    --text-dark: #1c1e21;
-  }
-  
+  /* Brand colors - VC-alaaf */
+  --primary-color: #002856;      /* Navy */
+  --secondary-color: #0093d0;    /* Cyan accent */
+  --accent: #0093d0;             /* Cyan accent for highlights */
+  --accent-hover: #006fa0;       /* Darker cyan for hover */
+  --accent-rgb: 0 147 208;       /* RGB for alpha usage */
+
+  /* Base colors */
+  --bg-color: #fafafa;           /* Light background */
+  --text-color: #202124;         /* Dark text */
+  --small-text: #505050;         /* Small/secondary text */
+  --muted-text: #5f6368;         /* Muted text */
+  --muted-text-light: #9aa0a6;   /* Light muted text */
+  --light-text: #666666;         /* Light body text */
+
+  /* Cards & surfaces */
+  --card-bg: #ffffff;            /* Card background */
+  --card-radius: 12px;           /* Card border radius */
+  --navbar-bg: rgba(255, 255, 255, 0.85);  /* Translucent navbar */
+  --navbar-color: #202124;       /* Navbar text */
+  --nav-blur: 12px;              /* Navbar backdrop blur */
+
+  /* Layout */
+  --gap-inline: 1.5rem;          /* Horizontal gap */
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+
+  /* Social & utility */
+  --social-bg: #c4c4c4;          /* Social icon bg */
+}
+
+.dark {
+  /* Brand colors adjusted for dark mode */
+  --primary-color: #4a9eff;      /* Lighter navy for readability */
+  --secondary-color: #33bfef;    /* Brighter cyan */
+  --accent: #33bfef;             /* Cyan accent */
+  --accent-hover: #66cff3;       /* Lighter hover */
+  --accent-rgb: 51 191 239;      /* RGB for alpha usage */
+
+  /* Base colors */
+  --bg-color: #1a1a1a;           /* Dark background */
+  --text-color: #ffffff;         /* Light text */
+  --small-text: #e0e0e0;         /* Light secondary text */
+  --muted-text: #b0b0b0;         /* Muted text */
+  --muted-text-light: #808080;   /* Light muted text */
+  --light-text: #cccccc;         /* Light body text */
+
+  /* Cards & surfaces */
+  --card-bg: rgba(30, 30, 30, 0.95);  /* Dark card bg */
+  --navbar-bg: rgba(30, 30, 30, 0.85); /* Dark navbar */
+  --navbar-color: #ffffff;       /* Light navbar text */
+
+  /* Social & utility */
+  --social-bg: #3b3b3b;          /* Dark social bg */
+}
+
+body {
+  position: relative;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Gradient overlay effect (inspired by CV site) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(at top left, rgb(var(--accent-rgb) / 0.15), transparent 50%),
+    radial-gradient(at bottom right, rgb(var(--accent-rgb) / 0.1), transparent 50%);
+  filter: blur(120px);
+  z-index: -1;
+  pointer-events: none;
+}

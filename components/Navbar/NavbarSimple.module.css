@@ -1,86 +1,188 @@
-/* overall nav wrapper */
-.nav {
+/* Sticky translucent bar */
+.navbar {
   position: sticky;
   top: 0;
-  z-index: 1000;
-
-  /* make this full‐bleed, even if it’s inside a container */
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-
-  background: #002856;               
-  border-bottom: 4px solid #0093d0;  /* full-width stripe */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 100;
+  height: 4rem;
+  backdrop-filter: blur(var(--nav-blur));
+  background: var(--navbar-bg);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  width: 100%;
 }
 
-/* inner container (still max-width 1200px) */
-.navContainer {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;    /* gutter on mobile */
-  height: 64px;
+.dark .navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
 
+.inner {
+  max-width: 1440px;
+  margin-inline: auto;
+  height: 4rem;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding-inline: clamp(1rem, 5vw, 2.5rem);
+  gap: 1.25rem;
 }
 
-/* logo text */
-.title {
-  font-size: 1.25rem;
+/* Brand */
+.brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: var(--text-color);
   font-weight: 700;
-  color: #ffffff;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-/* links group */
+.brand:hover {
+  opacity: 0.8;
+}
+
+.brandLogo {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+}
+
+.brandText {
+  font-family: "Bebas Neue", "Oswald", "Inter", sans-serif;
+  font-size: 1.65rem;
+  letter-spacing: 0.02em;
+}
+
+/* Nav links */
 .links {
   display: flex;
-  gap: 2rem;
+  flex-direction: row;
+  gap: 1.75rem;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-/* each link */
 .link {
   position: relative;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem;
-  color: rgba(255,255,255,0.85);
-  font-weight: 500;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.95rem;
   text-decoration: none;
+  color: var(--text-color);
   transition: color 0.2s ease;
 }
 
-/* hover state */
-.link:hover {
-  color: #ffffff;
-}
-
-/* underline animation */
 .link::after {
   content: "";
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: #0093d0;
-  transition: width 0.3s ease, left 0.3s ease;
-  transform: translateX(-50%);
-}
-.link:hover::after,
-.active::after {
+  left: 0;
+  bottom: -6px;
   width: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: var(--accent);
+  transition: transform 0.25s ease;
 }
 
-/* active state */
-.active {
-  color: #ffffff;
+.link:hover {
+  color: var(--accent);
 }
 
-/* icon inherits text color */
-.icon {
-  color: currentColor;
+.link:hover::after,
+.link.active::after {
+  transform: scaleX(1);
+}
+
+.link.active {
+  color: var(--accent);
+}
+
+.linkIcon {
+  color: inherit;
+}
+
+/* Social + controls */
+.controls {
+  display: flex;
+  flex-direction: row;
+  gap: 0.6rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.socials {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.langSwitcher {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.themeToggle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.langBtn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  filter: grayscale(0.7);
+  transition: filter 0.2s ease, transform 0.2s ease;
+  padding: 0.25rem;
+}
+
+.langBtn:hover {
+  transform: translateY(-2px);
+  filter: none;
+}
+
+.langActive {
+  filter: none;
+}
+
+/* Burger */
+.burger {
+  display: none;
+}
+
+/* Drawer link */
+.drawerLink {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color 0.2s ease;
+}
+
+.drawerLink:hover {
+  color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .links,
+  .controls .langSwitcher,
+  .controls .themeToggle,
+  .controls .socials {
+    display: none;
+  }
+  .burger {
+    display: block;
+  }
 }

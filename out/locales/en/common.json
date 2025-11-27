@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "home": "Home",
+    "wagens": "Floats",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Welcome to",
+    "title": "VC AL-AAF",
+    "description": "Help us build our 2026 carnival float and become part of Limburg's most festive tradition.",
+    "becomeSponsor": "Become a sponsor",
+    "learnMore": "Learn more",
+    "viewWagens": "Our Floats",
+    "scrollMore": "Scroll for more"
+  },
+  "about": {
+    "heading": "About Us",
+    "paragraph": "VC AL-AAF is an enthusiastic carnival association from Limburg that has been building beautiful floats for the carnival parade with passion and creativity for years.\n\nEvery year we gather a dedicated team of volunteers who work for months on a spectacular work of art on wheels. From the first design to the final brushstroke - everything is made with love and attention to detail.\n\nWould you like to be part of this great tradition? Become a sponsor and help us build another unforgettable float in 2026!"
+  },
+  "buildProcess": {
+    "title": "The Build Process",
+    "subtitle": "From first sketch to final creation - watch our float in development"
+  },
+  "sponsors": {
+    "title": "Our Sponsors!",
+    "subtitle": "A shout-out to all our amazing sponsors who help us make this dream come true."
+  },
+  "contact": {
+    "heading": "Become a sponsor!",
+    "description": "Interested? Fill out the form or call"
+  },
+  "form": {
+    "name": "Name / Company",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Your message",
+    "submit": "Submit",
+    "success": "Thank you! We'll be in touch soon.",
+    "error": {
+      "name": "Please enter your name",
+      "email": "Invalid email address",
+      "phone": "Invalid phone number",
+      "message": "Please enter a message",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+  "footer": {
+    "followUs": "Follow us on Instagram",
+    "instagram": "Instagram",
+    "rights": "All rights reserved."
+  },
+  "wagens": {
+    "title": "Floats - VC AL-AAF",
+    "heading": "Our Carnival Floats",
+    "gallery": "Photo Gallery"
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark"
+  }
+}

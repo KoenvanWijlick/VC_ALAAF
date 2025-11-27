@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "home": "Home",
+    "wagens": "Wagens",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Welkom bij",
+    "title": "VC AL-AAF",
+    "description": "Bouw mee aan onze carnavalswagen 2026 en word onderdeel!",
+    "becomeSponsor": "Word sponsor",
+    "learnMore": "Lees meer",
+    "viewWagens": "Onze Wagens",
+    "scrollMore": "Scroll voor meer"
+  },
+  "about": {
+    "heading": "Over Ons",
+    "paragraph": "VC AL-AAF is un carnavalsgroep oet Helje, auk in dit jaor koste wea ut neet laote en smakde ut nao mier. Dus kom kieke bij de optochte dit jaor en aanschaow ozze creatie van 2026."
+  },
+  "buildProcess": {
+    "title": "Het Bouwproces",
+    "subtitle": "Van eerste schets tot finale creatie - bekijk onze wagen in ontwikkeling"
+  },
+  "sponsors": {
+    "title": "Onze Sponsoren!",
+    "subtitle": "Een shout-out naar al onze geweldige sponsoren die ons helpen deze droom waar te maken."
+  },
+  "contact": {
+    "heading": "Word sponsor!",
+    "description": "Interesse? Vul het formulier in of bel"
+  },
+  "form": {
+    "name": "Naam / Bedrijf",
+    "email": "E-mail",
+    "phone": "Telefoon",
+    "message": "Uw bericht",
+    "submit": "Versturen",
+    "success": "Bedankt! We nemen snel contact op.",
+    "error": {
+      "name": "Vul uw naam in",
+      "email": "Ongeldig e-mailadres",
+      "phone": "Ongeldig telefoonnummer",
+      "message": "Vul een bericht in",
+      "generic": "Er ging iets mis. Probeer opnieuw."
+    }
+  },
+  "footer": {
+    "followUs": "Volg ons op Instagram",
+    "instagram": "Instagram",
+    "rights": "Alle rechten voorbehouden."
+  },
+  "wagens": {
+    "title": "Wagens - VC AL-AAF",
+    "heading": "Onze Carnavalswagens",
+    "gallery": "Fotogalerij"
+  },
+  "theme": {
+    "toggle": "Wissel thema",
+    "light": "Light",
+    "dark": "Dark"
+  }
+}

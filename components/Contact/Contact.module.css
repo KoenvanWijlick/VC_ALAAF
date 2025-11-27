@@ -1,0 +1,118 @@
+/* SECTION WRAPPER */
+.wrapper {
+  background: transparent;
+  padding: clamp(4rem, 7vw, 6rem) 1rem;
+  display: flex;
+  justify-content: center;
+  color: var(--light-text);
+  position: relative;
+}
+
+/* Card / form */
+.form {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  padding: clamp(2rem, 5vw, 3rem);
+  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+}
+
+.heading {
+  font-family: "Bebas Neue", "Oswald", sans-serif;
+  font-size: clamp(2rem, 4.5vw, 2.8rem);
+  letter-spacing: 0.03em;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.text {
+  text-align: center;
+  font-size: clamp(1rem, 1.15vw + 0.9rem, 1.1rem);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+}
+
+.phone {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.phone:hover {
+  text-decoration: underline;
+}
+
+.formFields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Mantine input override */
+.inputRoot :global(.mantine-Input-input) {
+  background: var(--card-bg);
+  border-color: rgba(var(--accent-rgb), 0.3);
+  color: var(--text-color);
+}
+
+.inputRoot :global(.mantine-Input-input:focus) {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.2);
+}
+
+.inputRoot :global(.mantine-Input-label) {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+/* Submit button accent */
+.submitBtn {
+  background: var(--accent);
+  color: white;
+  transition: background 0.25s ease;
+  margin-top: 0.5rem;
+}
+
+.submitBtn:hover {
+  background: var(--accent-hover);
+}
+
+/* Notification positioning */
+.notificationBox {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+/* Decorative blurred gradient behind card */
+.wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      at top left,
+      rgba(var(--accent-rgb), 0.15),
+      transparent 60%
+    ),
+    radial-gradient(
+      at bottom right,
+      rgba(var(--accent-rgb), 0.1),
+      transparent 60%
+    );
+  filter: blur(120px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .form {
+    padding: 1.5rem;
+  }
+}

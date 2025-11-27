@@ -1,103 +1,160 @@
-/* ---------- hero ---------- */
-.hero {
-  background: linear-gradient(135deg, var(--primary) 0%, #00427a 50%, #005c9e 100%);
-  padding: 6rem 0 1.5rem;      /* slightly trimmed */
-  color: #fff;
-  text-align: center;
-}
-.heroTitle {
-  font-size: clamp(2.5rem, 6vw, 3.5rem);
-  font-weight: 800;
-  margin-bottom: 0.3rem;
-}
-.heroSubtitle {
-  font-size: 1rem;
-  opacity: 0.9;
-}
-
-/* ---------- page background ---------- */
-.pageBackground {
-  background: linear-gradient(135deg, #e0f2fe 0%, #f4f7fb 100%);
-  padding: 3rem 0 6rem;         /* top/bottom padding */
-}
-
-/* ---------- container ---------- */
-.container {
-  max-width: 1200px;
-  margin-inline: auto;
-}
-
-/* ---------- alternating cards ---------- */
-.card {
-  display: flex;
-  align-items: stretch;
-  gap: 2rem;
-  background: #ffffff;          /* keep cards white */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-bottom: 3rem;
-  border-radius: 12px;
-}
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-}
-.normal { flex-direction: row; }
-.reversed { flex-direction: row-reverse; }
-
-/* ---------- text side ---------- */
-.text {
-  flex: 1 1 320px;
-  padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.yearRow {
-  align-items: center;
-  margin-bottom: 0.25rem;
-}
-.yearBar {
-  background: #0093d0;
-  width: 4px;
-  height: 32px;
-}
-.year {
-  color: #002856;
-  margin-left: 0.5rem;
-}
-.theme {
-  color: #0093d0;
-}
-
-/* ---------- image side ---------- */
-.imageWrapper {
-  position: relative;
-  flex: 1 1 380px;
-  min-height: 260px;
-  border-radius: 12px;
+/* SECTION */
+.wrapper {
+  background: var(--bg-color);
+  padding: clamp(4rem, 7vw, 6rem) 1rem;
+  color: var(--light-text);
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-.image {
-  transition: transform 0.5s ease;
-}
-.card:hover .image {
-  transform: scale(1.05);
+  min-height: 100vh;
 }
 
-/* ---------- slide wrapper ---------- */
-.slideImageWrapper {
+.container {
+  max-width: 1100px;
+  margin-inline: auto;
+  position: relative;
+}
+
+.headingPrimary {
+  font-family: "Bebas Neue", "Oswald", sans-serif;
+  font-size: clamp(2.8rem, 6vw, 3.8rem);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 3rem;
+}
+
+/* CENTRAL LINE */
+.container::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: var(--accent);
+  opacity: 0.9;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ENTRY WRAPPER */
+.entry {
+  position: relative;
+  display: flex;
+  gap: 2.2rem;
+  margin-block: 2.8rem;
+  align-items: flex-start;
+}
+
+.left {
+  flex-direction: row-reverse;
+}
+
+/* BULLET */
+.entry::before {
+  content: attr(data-year);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  font-weight: 700;
+  color: white;
+  z-index: 2;
+  box-shadow: 0 0 0 6px rgba(var(--accent-rgb), 0.2);
+  pointer-events: none;
+}
+
+/* CARD */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  padding: 1.5rem 1.75rem;
+  width: clamp(280px, 46%, 480px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  transition: transform 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+.cardTitle {
+  margin: 0 0 0.35rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.cardTag {
+  background: rgba(var(--accent-rgb), 0.15);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.mediaBox {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-block: 1rem;
 }
 
-/* ---------- mobile ---------- */
-@media (max-width: 780px) {
-  .card {
-    flex-direction: column !important;
+.media {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+.actions {
+  display: flex;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+}
+
+.iconBtn {
+  transition: transform 0.18s ease, background 0.18s ease;
+  color: var(--text-color);
+}
+
+.iconBtn:hover {
+  transform: translateY(-3px);
+  background: rgba(var(--accent-rgb), 0.15);
+}
+
+/* MOBILE STACK */
+@media (max-width: 768px) {
+  .container::before {
+    left: 8px;
+    transform: none;
+    pointer-events: none;
   }
-  .text {
-    padding: 1.5rem 1rem;
+  .entry,
+  .left {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .entry::before {
+    left: 8px;
+    transform: translate(-50%, -50%);
+  }
+  .card {
+    width: 100%;
+  }
+  .mediaBox {
+    height: 200px;
   }
 }

@@ -1,0 +1,56 @@
+.wrapper {
+  background: transparent;
+  padding: clamp(4rem, 8vw, 7rem) 1rem;
+  color: var(--light-text);
+}
+
+.container {
+  max-width: 1200px;
+}
+
+.heading {
+  font-family: "Bebas Neue", "Oswald", sans-serif;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  letter-spacing: 0.04em;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.subtitle {
+  text-align: center;
+  font-size: clamp(1rem, 1.15vw + 0.9rem, 1.2rem);
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  color: var(--muted-text);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid {
+  margin-top: 2rem;
+}
+
+.card {
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--card-bg);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.15);
+}
+
+.imageBox {
+  position: relative;
+  width: 100%;
+  padding-bottom: 70%;
+}
+
+.image {
+  object-fit: cover;
+}
