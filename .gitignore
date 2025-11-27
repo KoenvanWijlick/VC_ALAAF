@@ -43,3 +43,6 @@ yarn-error.log*
 *.lock
 node_modules*
 .next*
+
+# TypeScript build info
+*.tsbuildinfo

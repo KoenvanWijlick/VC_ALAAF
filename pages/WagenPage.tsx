@@ -32,6 +32,12 @@ type Wagen = {
 export default function WagensPage() {
   const items: Wagen[] = [
     {
+      year: "2026",
+      theme: "??",
+      desc: "??",
+      image: "/images/Wagen2026.png",
+    },
+    {
       year: "2025",
       theme: "Kermis",
       desc: "De kermis is os um ut aeve, vastelaovend—det is os laeve!",
