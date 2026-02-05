@@ -6,16 +6,16 @@ export default function WebLayout({ children }: { children: React.ReactNode }) {
   return (
     <AppShell
       padding={0}
-      header={{ height: 60 }}
+      header={{ height: 64 }}
       navbar={undefined}
       styles={{
         main: {
-          marginTop: 60,
+          marginTop: 64,
           padding: "0",
         },
       }}
     >
-      <AppShell.Header px="md" style={{ background: "#fff", boxShadow: "0 2px 4px rgba(0,0,0,0.05)" }}>
+      <AppShell.Header px={0} style={{ background: "transparent", boxShadow: "none" }}>
         <NavbarSimpleContent />
       </AppShell.Header>
       {children}

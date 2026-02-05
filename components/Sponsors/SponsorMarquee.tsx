@@ -34,6 +34,7 @@ export default function SponsorMarquee() {
               fill
               sizes="260px"
               style={{ objectFit: "contain" }}
+              className={styles.logoImage}
               priority={idx < logos.length}
             />
           </Box>

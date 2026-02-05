@@ -5,15 +5,27 @@ import { MantineProvider } from "@mantine/core";
 import Head from "next/head";
 import WebLayout from "../components/WebLayout";
 import I18nClientProvider from "../components/I18nClientProvider";
-import ThemeProvider from "../components/ThemeProvider";
-import { theme } from "../theme";
+import ThemeProvider, { useTheme } from "../components/ThemeProvider";
+import { theme as mantineTheme } from "../theme";
 import "../styles/globals.css";
+
+function ThemedMantineProvider({ children }: { children: React.ReactNode }) {
+  const { theme } = useTheme();
+  return (
+    <MantineProvider
+      theme={mantineTheme}
+      forceColorScheme={theme === "theme-dark" ? "dark" : "light"}
+    >
+      {children}
+    </MantineProvider>
+  );
+}
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <I18nClientProvider>
       <ThemeProvider>
-        <MantineProvider theme={theme} forceColorScheme="light">
+        <ThemedMantineProvider>
           <Head>
             <title>VC AL-AAF</title>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,7 +38,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <WebLayout>
             <Component {...pageProps} />
           </WebLayout>
-        </MantineProvider>
+        </ThemedMantineProvider>
       </ThemeProvider>
     </I18nClientProvider>
   );

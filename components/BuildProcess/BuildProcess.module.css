@@ -2,10 +2,24 @@
   background: transparent;
   padding: clamp(4rem, 8vw, 7rem) 1rem;
   color: var(--light-text);
+  position: relative;
+  overflow: hidden;
+}
+
+.wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(900px 500px at 10% -10%, rgba(255, 198, 0, 0.12), transparent 55%),
+    radial-gradient(800px 500px at 110% 0%, rgba(255, 80, 0, 0.1), transparent 60%);
+  pointer-events: none;
 }
 
 .container {
   max-width: 1200px;
+  position: relative;
+  z-index: 1;
 }
 
 .heading {
@@ -15,6 +29,17 @@
   text-align: center;
   margin-bottom: 1rem;
   color: var(--accent);
+  position: relative;
+}
+
+.heading::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 3px;
+  margin: 0.75rem auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), rgba(255, 255, 255, 0.15));
 }
 
 .subtitle {
@@ -35,14 +60,17 @@
 .card {
   border-radius: var(--card-radius);
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.18);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: var(--card-bg);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
 }
 
 .imageBox {

@@ -2,19 +2,35 @@
   background: transparent;
   padding: clamp(4rem, 8vw, 7rem) 1rem;
   color: var(--light-text);
+  position: relative;
+  overflow: hidden;
+}
+
+.wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(900px 450px at 15% -10%, rgba(255, 255, 255, 0.06), transparent 60%),
+    radial-gradient(800px 450px at 110% 10%, rgba(0, 0, 0, 0.08), transparent 60%);
+  pointer-events: none;
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1200px;
+  position: relative;
+  z-index: 1;
 }
 
 .paper {
-  background: var(--card-bg);
-  border-radius: var(--card-radius);
+  background:
+    linear-gradient(180deg, rgba(10, 14, 20, 0.92), rgba(10, 14, 20, 0.88));
+  border-radius: 18px;
   padding: clamp(2rem, 5vw, 3rem);
-  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.32);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  width: 100%;
 }
 
 .dark .paper {
@@ -27,7 +43,18 @@
   letter-spacing: 0.04em;
   text-align: center;
   margin-bottom: 1rem;
-  color: var(--accent);
+  color: #f2f6ff;
+  position: relative;
+}
+
+.heading::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 2px;
+  margin: 0.75rem auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(232, 243, 255, 0.7), rgba(255, 255, 255, 0.2));
 }
 
 .text {
@@ -35,5 +62,5 @@
   font-size: clamp(1rem, 1.15vw + 0.9rem, 1.1rem);
   line-height: 1.6;
   margin-bottom: 2rem;
-  color: var(--text-color);
+  color: rgba(242, 246, 255, 0.88);
 }

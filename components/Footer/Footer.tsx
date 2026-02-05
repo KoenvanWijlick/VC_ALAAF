@@ -11,7 +11,7 @@ export default function Footer() {
 
   return (
     <Box component="footer" className={classes.footer}>
-      <Container size="sm">
+      <Container size="md" className={classes.inner}>
         <Text className={classes.text}>
           {t("footer.followUs", "Volg ons op Instagram")}
         </Text>
@@ -29,6 +29,7 @@ export default function Footer() {
         >
           {t("footer.instagram", "Instagram")}
         </Button>
+        <div className={classes.divider} />
         <Text className={classes.copyright}>
           © {new Date().getFullYear()} VC AL-AAF. {t("footer.rights", "Alle rechten voorbehouden.")}
         </Text>

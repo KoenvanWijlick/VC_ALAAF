@@ -1,23 +1,44 @@
 .footer {
-  background: linear-gradient(135deg, var(--primary-color) 0%, #001a3d 100%);
-  padding: 3rem 1rem;
+  background:
+    radial-gradient(900px 360px at 20% -10%, rgba(255, 255, 255, 0.08), transparent 60%),
+    linear-gradient(180deg, #0b0f16 0%, #0a0d12 100%);
+  padding: 3.5rem 1.25rem;
   color: #fff;
   text-align: center;
   position: relative;
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
 }
 
 .text {
   font-size: clamp(1rem, 1.15vw + 0.9rem, 1.2rem);
   margin-bottom: 1.5rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .button {
   margin-bottom: 2rem;
 }
 
+.divider {
+  height: 1px;
+  width: min(420px, 80%);
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
 .copyright {
   font-size: 0.9rem;
-  opacity: 0.7;
+  opacity: 0.9;
   margin-top: 1rem;
+}
+
+:global(body.theme-light) .footer .text,
+:global(body.theme-light) .footer .copyright {
+  color: #ffffff;
+  opacity: 0.95;
 }

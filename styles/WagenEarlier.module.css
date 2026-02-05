@@ -137,6 +137,12 @@
 
 /* MOBILE STACK */
 @media (max-width: 768px) {
+  .headingPrimary {
+    font-size: clamp(2.1rem, 8vw, 2.7rem);
+    letter-spacing: 0.02em;
+    padding-inline: 0.5rem;
+    word-break: break-word;
+  }
   .container::before {
     left: 8px;
     transform: none;
