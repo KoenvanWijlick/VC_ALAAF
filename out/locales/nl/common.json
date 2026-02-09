@@ -2,7 +2,8 @@
   "nav": {
     "home": "Home",
     "wagens": "Wagens",
-    "contact": "Contact"
+    "contact": "Contact",
+    "sponsors": "Sponsoren"
   },
   "hero": {
     "greeting": "Welkom bij",
@@ -23,7 +24,10 @@
   },
   "sponsors": {
     "title": "Onze Sponsoren!",
-    "subtitle": "Een shout-out naar al onze geweldige sponsoren die ons helpen deze droom waar te maken."
+    "subtitle": "Een shout-out naar al onze geweldige sponsoren die ons helpen deze droom waar te maken.",
+    "pageTitle": "Sponsoren - VC AL-AAF",
+    "pageHeading": "Onze Sponsoren",
+    "pageIntro": "Dankjewel aan alle sponsoren die onze carnavalswagen mogelijk maken. Bekijk hieronder alle logo's."
   },
   "contact": {
     "heading": "Word sponsor!",

@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Container, Paper, Title, Text } from "@mantine/core";
+import Link from "next/link";
+import { Container, Paper, Title, Text, Button } from "@mantine/core";
 import { useTranslation } from "react-i18next";
 import SponsorMarquee from "./SponsorMarquee";
 import classes from "./Sponsors.module.css";
@@ -22,6 +23,18 @@ export default function Sponsors() {
               "Een shout-out naar al onze geweldige sponsoren die ons helpen deze droom waar te maken."
             )}
           </Text>
+          <div className={classes.cta}>
+            <Button
+              component={Link}
+              href="/sponsors"
+              radius="xl"
+              variant="light"
+              size="md"
+              className={classes.ctaButton}
+            >
+              {t("sponsors.cta", "Allemaal op een rijtje")}
+            </Button>
+          </div>
           <SponsorMarquee />
         </Paper>
       </Container>

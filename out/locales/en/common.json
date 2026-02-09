@@ -2,7 +2,8 @@
   "nav": {
     "home": "Home",
     "wagens": "Floats",
-    "contact": "Contact"
+    "contact": "Contact",
+    "sponsors": "Sponsors"
   },
   "hero": {
     "greeting": "Welcome to",
@@ -23,7 +24,10 @@
   },
   "sponsors": {
     "title": "Our Sponsors!",
-    "subtitle": "A shout-out to all our amazing sponsors who help us make this dream come true."
+    "subtitle": "A shout-out to all our amazing sponsors who help us make this dream come true.",
+    "pageTitle": "Sponsors - VC AL-AAF",
+    "pageHeading": "Our Sponsors",
+    "pageIntro": "Thank you to all sponsors who make our carnival float possible. See all logos below."
   },
   "contact": {
     "heading": "Become a sponsor!",

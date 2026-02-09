@@ -1,0 +1,94 @@
+.wrapper {
+  background: var(--bg-color);
+  padding: clamp(4rem, 7vw, 6rem) 1rem;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.hero {
+  background: #f5f7fa;
+  border-radius: calc(var(--card-radius) + 6px);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: 2.5rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  text-align: center;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.heading {
+  font-family: "Bebas Neue", "Oswald", sans-serif;
+  font-size: clamp(2.5rem, 6vw, 3.6rem);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+
+.intro {
+  color: #4b5563;
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2.4vw, 1.6rem);
+}
+
+.card {
+  background: #f5f7fa;
+  border-radius: var(--card-radius);
+  padding: 1rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(15, 23, 42, 0.2);
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.16);
+}
+
+.logoFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #eef2f6;
+  border: none;
+  border-radius: calc(var(--card-radius) - 4px);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.logo {
+  object-fit: contain;
+  padding: clamp(0.6rem, 2vw, 1.2rem);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .heading {
+    font-size: clamp(2rem, 10vw, 2.6rem);
+  }
+
+  .intro {
+    font-size: 0.9rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

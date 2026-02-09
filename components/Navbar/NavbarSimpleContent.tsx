@@ -5,7 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Group, Burger, Drawer, Stack, ActionIcon } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconHome, IconPackage, IconBrandInstagram } from "@tabler/icons-react";
+import {
+  IconHome,
+  IconPackage,
+  IconBrandInstagram,
+  IconHeartHandshake,
+} from "@tabler/icons-react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../ThemeProvider";
 import { ColorSchemeToggle } from "../ColorSchemeToggle/ColorSchemeToggle";
@@ -14,6 +19,7 @@ import classes from "./NavbarSimple.module.css";
 const LINKS = [
   { href: "/", labelKey: "nav.home", icon: IconHome },
   { href: "/WagenPage", labelKey: "nav.wagens", icon: IconPackage },
+  { href: "/sponsors", labelKey: "nav.sponsors", icon: IconHeartHandshake },
 ];
 
 const LANGS = [
