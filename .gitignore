@@ -11,6 +11,7 @@ yarn-error.log*
 # Build output
 /dist
 /build
+/out
 
 # Dependency directories
 /.pnp
