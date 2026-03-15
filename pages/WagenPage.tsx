@@ -35,10 +35,20 @@ type Wagen = {
 const wagensData: Wagen[] = [
   {
     year: "2026",
-    theme: "??",
-    desc: "??",
-    image: "/images/Wagen2026.png",
+    theme: "restaurant",
+    desc: "Deze vastelaovend smakt nao mier",
+    image: "/images/foto-027_Original.jpeg",
     gallery: [
+      "/images/wagen2026/foto-018_Original.jpeg",
+      "/images/wagen2026/foto-027_Original.jpeg",
+      "/images/wagen2026/foto-028_Original.jpeg",
+      "/images/wagen2026/foto-029_Original.jpeg",
+      "/images/wagen2026/foto-030_Original.jpeg",
+      "/images/wagen2026/foto-033_Original.jpeg",
+      "/images/wagen2026/foto-036_Original.jpeg",
+      "/images/wagen2026/foto-037_Original.jpeg",
+      "/images/wagen2026/foto-039_Original.jpeg",
+      "/images/wagen2026/foto-044_Original.jpeg",
       "/images/wagen2026/video1.mp4",
       "/images/wagen2026/video2.mp4",
       "/images/wagen2026/video3.mp4",
